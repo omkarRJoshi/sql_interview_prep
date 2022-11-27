@@ -19,3 +19,13 @@ select * from
 as T
 order by T.salary asc limit 1;
 ```
+
+#### 2. Display Alternate Records
+##### columns: deptNo, salary, ename
+```
+select * from 
+(select *, row_number() over (order by deptNo) as rownum from emp)
+as T
+where 
+mod (rownum, 2) != 0;
+```
