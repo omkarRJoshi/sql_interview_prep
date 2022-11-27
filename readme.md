@@ -14,6 +14,7 @@ where
 salary not in (select max(salary) from emp_salary);
 ```
 ###### nth highest (n = 3)
+```
 select * from 
 (select distinct(salary) from emp_salary order by salary desc limit 3)
 as T
